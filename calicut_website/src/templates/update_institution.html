@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}Update Institution - Calicut Guide{% endblock %}
+
+{% block content %}
+<div class="page-title">Update Institution</div>
+<div class="glass-panel">
+
+<form enctype="multipart/form-data" action="/update_education" method="post">
+  <div class="table-wrapper"><table class="modern-table">
+  <tbody>
+    <tr>
+      <th scope="row">Name</th>
+      <td><input class="form-control" type="text" name="name" id="textfield6" value="{{value[1]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Place</td>
+      <td><input class="form-control" type="text" name="place" id="textfield5" value="{{value[2]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Post</td>
+      <td><input class="form-control" type="text" name="post" id="textfield4" value="{{value[3]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Pincode</td>
+      <td><input class="form-control" type="text" name="pin" id="textfield3" value="{{value[4]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Contact no</td>
+      <td><input class="form-control" type="text" name="contact" id="tel" maxlength="20" placeholder="e.g. 0495 272 0011" value="{{value[5]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Email id</td>
+      <td><input class="form-control" type="email" name="email" id="email" value="{{value[6]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Opening Time</td>
+      <td><input class="form-control" type="text" name="opens" id="textfield" value="{{value[7]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Closing Time</td>
+      <td><input class="form-control" type="text" name="closes" id="textfield7" value="{{value[8]}}"></td>
+    </tr>
+
+    <tr>
+      <th colspan="2" scope="row"><input type="submit" name="submit" id="submit" value="update" class="btn btn-primary" style="margin-top:1rem;"></td>
+      </tr>
+  </tbody>
+</table></div>
+
+</div>
+{% endblock %}

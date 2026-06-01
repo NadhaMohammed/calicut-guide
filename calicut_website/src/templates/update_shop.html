@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}Update Shop - Calicut Guide{% endblock %}
+
+{% block content %}
+<div class="page-title">Update Shop</div>
+<div class="glass-panel">
+
+	<form enctype="multipart/form-data" action="update_shop_details" method="post">
+      <div class="table-wrapper"><table class="modern-table">
+
+
+
+  <tbody>
+    <tr>
+      <th width="98" scope="row">Shop Type</th>
+      <td width="144"><select class="form-control" name="shop_type" id="select" value="{{value[1]}}">
+        <option>Hyper market</option>
+          <option>Grocery shop</option>
+          <option>Medicinal Shop</option>
+          <option>Fish market</option>
+      </select></td>
+    </tr>
+    <tr>
+      <th scope="row">Name</th>
+      <td><input class="form-control" type="text" name="name" id="textfield6" value="{{value[2]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Place</th>
+      <td><input class="form-control" type="text" name="place" id="textfield5" value="{{value[3]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Post</th>
+      <td><input class="form-control" type="text" name="post" id="textfield4" value="{{value[4]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Pincode</th>
+      <td><input class="form-control" type="text" name="pincode" id="textfield3" value="{{value[5]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Contact no</th>
+      <td><input class="form-control" type="text" name="contactno" id="tel" maxlength="20" placeholder="e.g. 0495 272 0011" value="{{value[6]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Opening Time</th>
+      <td><input class="form-control" type="text" name="opens" id="textfield" value="{{value[7]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Closing Time</th>
+      <td><input class="form-control" type="text" name="closes" id="textfield7" value="{{value[8]}}"></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><input type="submit" name="update" id="submit" value="update" class="btn btn-primary" style="margin-top:1rem;"></th>
+      </tr>
+  </tbody>
+</table
+
+</form>
+
+
+</div>
+{% endblock %}

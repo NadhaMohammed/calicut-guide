@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Entertainment - Calicut Guide{% endblock %}
+
+{% block content %}
+<div class="page-title">Entertainment Dashboard</div>
+
+<div class="card-grid">
+    <a href="beach_page_view" style="text-decoration: none; color: inherit;">
+        <div class="stat-card">
+            <div class="stat-icon" style="background: rgba(99, 102, 241, 0.2);"><i class="fa-solid fa-folder-open"></i></div>
+            <div class="stat-details">
+                <h3 style="text-transform: capitalize;">beach details</h3>
+                <p>Manage beach details records</p>
+            </div>
+        </div>
+    </a>
+    <a href="mall_page_view" style="text-decoration: none; color: inherit;">
+        <div class="stat-card">
+            <div class="stat-icon" style="background: rgba(99, 102, 241, 0.2);"><i class="fa-solid fa-folder-open"></i></div>
+            <div class="stat-details">
+                <h3 style="text-transform: capitalize;">mall details</h3>
+                <p>Manage mall details records</p>
+            </div>
+        </div>
+    </a>
+</div>
+{% endblock %}

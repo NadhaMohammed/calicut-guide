@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Update Restfood - Calicut Guide{% endblock %}
+
+{% block content %}
+<div class="page-title">Update Restfood</div>
+<div class="glass-panel">
+
+<form enctype="multipart/form-data" action="/reg_restfood" method="post">
+  <div class="table-wrapper"><table class="modern-table">
+  <tbody>
+    <tr>
+      <th scope="row">Name of Dish</th>
+      <td><input class="form-control" type="text" name="dish" id="textfield" value="{{value[1]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Category</th>
+      <td><select class="form-control" name="category" id="select" value="{{value[2]}}">
+        <option>Soup</option>
+          <option>Salad</option>
+          <option>Main Course</option>
+          <option>Desert</option>
+      </select></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><input class="form-control" type="radio" name="radio" id="radio" value="Vegetarian" {%if value[3]=='Vegetarian'%} checked {%endif%} >
+        <label for="radio">Vegetarian 
+          <input class="form-control" type="radio" name="radio" id="radio2" value="Non-Veg" {%if value[3]=='Non-Veg'%} checked {%endif%} >
+        Non-Veg</label></th>
+      </tr>
+    <tr>
+      <th scope="row">Price</th>
+      <td><input class="form-control" type="text" name="price" id="textfield2" value="{{value[5]}}"></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><input type="submit" name="submit" id="submit" value="update" class="btn btn-primary" style="margin-top:1rem;"></th>
+      </tr>
+  </tbody>
+</table></div>
+</form>
+
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Course - Calicut Guide{% endblock %}
+
+{% block content %}
+<div class="page-title">Course Dashboard</div>
+
+<div class="card-grid">
+    <a href="/add_course" style="text-decoration: none; color: inherit;">
+        <div class="stat-card">
+            <div class="stat-icon" style="background: rgba(99, 102, 241, 0.2);"><i class="fa-solid fa-folder-open"></i></div>
+            <div class="stat-details">
+                <h3 style="text-transform: capitalize;">add course</h3>
+                <p>Manage add course records</p>
+            </div>
+        </div>
+    </a>
+    <a href="#" style="text-decoration: none; color: inherit;">
+        <div class="stat-card">
+            <div class="stat-icon" style="background: rgba(99, 102, 241, 0.2);"><i class="fa-solid fa-folder-open"></i></div>
+            <div class="stat-details">
+                <h3 style="text-transform: capitalize;">view course</h3>
+                <p>Manage view course records</p>
+            </div>
+        </div>
+    </a>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Update Railway - Calicut Guide{% endblock %}
+
+{% block content %}
+<div class="page-title">Update Railway</div>
+<div class="glass-panel">
+
+	<form action="update_railway" method="post"><div class="table-wrapper"><table class="modern-table">
+  <tbody>
+    <tr>
+      <th scope="row">Railway Station Name</th>
+      <td><input class="form-control" type="text" name="name" id="textfield" value="{{value[1]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">About</th>
+      <td><textarea class="form-control" name="about" id="textarea" >{{value[2]}}></textarea></td>
+    </tr>
+    <tr>
+      <th scope="row">Latitude</th>
+      <td><input class="form-control" type="text" name="latitude" id="textfield3" value="{{value[3]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Longitude</th>
+      <td><input class="form-control" type="text" name="longitude" id="textfield4" value="{{value[4]}}"></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><input type="submit" name="submit" id="submit" value="update" class="btn btn-primary" style="margin-top:1rem;"></th>
+      </tr>
+  </tbody>
+</table></div>
+
+</form>
+
+</div>
+{% endblock %}

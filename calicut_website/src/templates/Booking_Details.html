@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %}Booking Details - Calicut Guide{% endblock %}
+
+{% block content %}
+<div class="page-title">Booking Details</div>
+<div class="glass-panel">
+<form  enctype="multipart/form-data" action="add_consultation" method="post" >
+  <div class="table-wrapper"><table class="modern-table">
+    <tbody>
+      <tr>
+        <th scope="row">Doc Name</th>
+        <td><label for="select2">Select:</label>
+          <select class="form-control" name="select2" id="select2">
+            {%for i in doc%}
+            <option value="{{i[0]}}" {%if value==i[0] %} selected {%endif%}>{{i[1]}}</option>
+            {%endfor%}
+        </select></td>
+      </tr>
+      <tr>
+        <th scope="row">Booking Time</th>
+        <td><input class="form-control" type="text" name="Booking_time" id="textfield2"></td>
+      </tr>
+      <tr>
+        <th scope="row">Booking Day</th>
+        <td><label for="select">Select:</label>
+          <select class="form-control" name="select" id="select">
+            <option>Monday</option>
+            <option>Tuesday</option>
+            <option>Wednesday</option>
+            <option>Thursday</option>
+            <option>Friday</option>
+            <option>Saturday</option>
+        </select></td>
+      </tr>
+      <tr>
+        <th colspan="2" scope="row"><input type="submit" name="submit" id="submit" value="Submit" class="btn btn-primary" style="margin-top:1rem;"></th>
+      </tr>
+    </tbody>
+  </table></div>
+  <p>&nbsp;</p>
+  <div class="table-wrapper"><table class="modern-table">
+    <tbody>
+      <tr>
+        <th scope="row">Doc Name</th>
+        <td>Booking Time</td>
+        <td>Booking Day</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      {%for i in value%}
+      <tr>
+        <th scope="row">&nbsp;{{i[1]}}</th>
+        <td>&nbsp;{{i[2]}}</td>
+        <td>&nbsp;{{i[3]}}</td>
+        <td><a href="edit_consultation?book_id={{i[0]}}">edit</a></td>
+        <td><a href="del_consultation?book_id={{i[0]}}">delete</a></td>
+      </tr>
+    {%endfor%}
+    </tbody>
+  </table></div>
+  <p>&nbsp;</p>
+</form>
+
+</div>
+{% endblock %}

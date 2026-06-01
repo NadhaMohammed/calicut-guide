@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block title %}Add View Room Details - Calicut Guide{% endblock %}
+
+{% block content %}
+<div class="page-title">Add View Room Details</div>
+<div class="glass-panel">
+
+<form enctype="multipart/form-data" action="/reg_restroom" method="post">
+  <div class="table-wrapper"><table class="modern-table">
+  <tbody>
+    <tr>
+      <th scope="row">Room Details</th>
+      <td><select class="form-control" name="room" id="select">
+        <option>Suit Room</option>
+          <option>Standard Room</option>
+          <option>Executive Room</option>
+      </select></td>
+    </tr>
+    <tr>
+      <th scope="row">Occupancy</th>
+      <td><select class="form-control" name="occupancy" id="select2">
+        <option>Single Occupancy</option>
+          <option>Double Occupancy</option>
+      </select></td>
+    </tr>
+    <tr>
+      <th scope="row">Price</th>
+      <td><input class="form-control" type="text" name="price" id="textfield"></td>
+    </tr>
+    <tr>
+      <th scope="row">Room Amenities</th>
+      <td><textarea class="form-control" name="roomamenities" id="textarea"></textarea></td>
+    </tr>
+    <tr>
+      <th scope="row">Photo</th>
+      <td><input class="form-control" type="file" name="image" id="fileField"></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><input type="submit" name="submit" id="submit" value="Submit" class="btn btn-primary" style="margin-top:1rem;"></th>
+      </tr>
+  </tbody>
+</table></div>
+  <p>&nbsp;</p>
+  <div class="table-wrapper"><table class="modern-table">
+    <tbody>
+      <tr>
+        <th scope="col">Room Details</th>
+        <th scope="col">Occupancy</th>
+        <th scope="col">Price</th>
+        <th scope="col">Room Amenities</th>
+        <th scope="col">Photo</th>
+        <th scope="col">&nbsp;</th>
+        <th scope="col">&nbsp;</th>
+      </tr>
+       {%for i in value%}
+      <tr>
+        <td>&nbsp;{{i[1]}}</td>
+        <td>{{i[2]}}</td>
+        <td>{{i[3]}}</td>
+        <td>&nbsp;{{i[4]}}</td>
+        <td>&nbsp;<img src="/static/image/{{i[5]}}" , height="60"  width="60"></td>
+        <td><a href="edit_restroom?id={{i[0]}}">edit</a></td>
+        <td><a href="del_resroom?id={{i[0]}}">Delete</a></td>
+      </tr>
+    {%endfor%}
+    </tbody>
+  </table></div>
+  <p>&nbsp;</p>
+</form>
+
+</div>
+{% endblock %}

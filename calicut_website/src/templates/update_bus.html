@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Update Bus - Calicut Guide{% endblock %}
+
+{% block content %}
+<div class="page-title">Update Bus</div>
+<div class="glass-panel">
+<form action="update_bus" method="post">
+  <div class="table-wrapper"><table class="modern-table">
+  <tbody>
+    <tr>
+      <th width="114" scope="row"><p>Bus stop name</p></th>
+      <td> <input class="form-control" type="text" name="bus_name" id="textfield" value="{{value[1]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Latitude</th>
+      <td><input class="form-control" type="text" name="latitude" id="textfield2" value="{{value[2]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Longitude</th>
+      <td><input class="form-control" type="text" name="longitude" id="textfield3" value="{{value[3]}}"></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><input type="submit" name="submit" id="submit" value="update" class="btn btn-primary" style="margin-top:1rem;"></th>
+      </tr>
+  </tbody>
+</table></div>
+
+</form>
+
+</div>
+{% endblock %}

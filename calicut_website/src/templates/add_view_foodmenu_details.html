@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block title %}Add View Foodmenu Details - Calicut Guide{% endblock %}
+
+{% block content %}
+<div class="page-title">Add View Foodmenu Details</div>
+<div class="glass-panel">
+
+<form enctype="multipart/form-data" action="/reg_restfood" method="post">
+  <div class="table-wrapper"><table class="modern-table">
+  <tbody>
+    <tr>
+      <th scope="row">Name of Dish</th>
+      <td><input class="form-control" type="text" name="dish" id="textfield"></td>
+    </tr>
+    <tr>
+      <th scope="row">Category</th>
+      <td><select class="form-control" name="category" id="select">
+        <option>Soup</option>
+          <option>Salad</option>
+          <option>Main Course</option>
+          <option>Desert</option>
+      </select></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><input class="form-control" type="radio" name="radio" id="radio" value="Vegetarian" checked>
+        <label for="radio">Vegetarian 
+          <input class="form-control" type="radio" name="radio" id="radio2" value="Non-Veg" checked>
+        Non-Veg</label></th>
+      </tr>
+    <tr>
+      <th scope="row">Price</th>
+      <td><input class="form-control" type="text" name="price" id="textfield2"></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><input type="submit" name="submit" id="submit" value="Submit" class="btn btn-primary" style="margin-top:1rem;"></th>
+      </tr>
+  </tbody>
+</table></div>
+  <p>&nbsp;</p>
+  <div class="table-wrapper"><table class="modern-table">
+    <tbody>
+
+      <tr>
+        <th scope="col">Dish</th>
+        <th scope="col">Category</th>
+        <th scope="col">Veg/Non-Veg</th>
+        <th scope="col">Price</th>
+        <th scope="col">&nbsp;</th>
+        <th scope="col">&nbsp;</th>
+      </tr>
+      {%for i in value%}
+      <tr>
+        <td>&nbsp;{{i[1]}}</td>
+        <td>{{i[2]}}</td>
+        <td>&nbsp;{{i[3]}}</td>
+        <td>&nbsp;{{i[5]}}</td>
+        <td><a href="edit_restfood?id={{i[0]}}">edit</a></td>
+        <td><a href="del_resfood?id={{i[0]}}">delete</a></td>
+      </tr>
+    {%endfor%}
+    </tbody>
+  </table></div>
+  <p>&nbsp;</p>
+</form>
+
+</div>
+{% endblock %}

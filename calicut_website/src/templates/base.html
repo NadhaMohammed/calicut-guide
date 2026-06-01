@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Calicut Guide{% endblock %}</title>
+    <!-- SweetAlert2 for beautiful alerts -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Premium CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <div class="bg-blob"></div>
+    <div class="bg-blob secondary"></div>
+
+    {% if not hide_sidebar %}
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <img src="{{ url_for('static', filename='image/home_page_logo.png') }}" alt="Calicut Guide Logo" style="height: 35px; width: auto; border-radius: 50%;">
+            <span>Calicut Guide</span>
+        </div>
+        <ul class="nav-links">
+            <li class="nav-item">
+                <a href="/hospital" class="nav-link"><i class="fa-solid fa-hospital"></i> Hospitals</a>
+            </li>
+            <li class="nav-item">
+                <a href="/transportation" class="nav-link"><i class="fa-solid fa-bus"></i> Transportation</a>
+            </li>
+            <li class="nav-item">
+                <a href="/Entertainment" class="nav-link"><i class="fa-solid fa-umbrella-beach"></i> Entertainment</a>
+            </li>
+            <li class="nav-item">
+                <a href="/Shop" class="nav-link"><i class="fa-solid fa-store"></i> Shops</a>
+            </li>
+            <li class="nav-item">
+                <a href="/restaurant" class="nav-link"><i class="fa-solid fa-utensils"></i> Restaurants</a>
+            </li>
+            <li class="nav-item">
+                <a href="/doctor_details" class="nav-link"><i class="fa-solid fa-user-doctor"></i> Doctors</a>
+            </li>
+            <li class="nav-item">
+                <a href="/ambulance_details" class="nav-link"><i class="fa-solid fa-truck-medical"></i> Ambulances</a>
+            </li>
+            <li class="nav-item">
+                <a href="/" class="nav-link text-danger" style="margin-top: 2rem;"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+            </li>
+        </ul>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div class="user-profile">
+                <a href="/admin_profile" style="display: flex; align-items: center; gap: 15px; text-decoration: none; color: inherit; padding: 0.4rem 0.8rem; border-radius: 10px; transition: background 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.05)'" onmouseout="this.style.background='transparent'">
+                    <span>Welcome, Admin</span>
+                    <i class="fa-solid fa-circle-user fa-2x text-primary"></i>
+                </a>
+            </div>
+        </header>
+
+        <div class="content-wrapper">
+    {% endif %}
+
+            {% block content %}{% endblock %}
+
+    {% if not hide_sidebar %}
+        </div>
+    </main>
+    {% endif %}
+
+    <!-- Global Flash Messages (if we convert to flash later) -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <script>
+          {% for category, message in messages %}
+            Swal.fire({
+              icon: '{{ category if category != "message" else "info" }}',
+              title: '{{ message }}',
+              background: 'rgba(30, 41, 59, 0.9)',
+              color: '#fff',
+              backdrop: `rgba(0,0,0,0.4)`
+            });
+          {% endfor %}
+        </script>
+      {% endif %}
+    {% endwith %}
+
+    <script>
+        // Auto highlight active nav link
+        const currentPath = window.location.pathname;
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            if(link.getAttribute('href') === currentPath) {
+                link.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}Update Restroom - Calicut Guide{% endblock %}
+
+{% block content %}
+<div class="page-title">Update Restroom</div>
+<div class="glass-panel">
+
+<form enctype="multipart/form-data" action="/update_restroom" method="post">
+  <div class="table-wrapper"><table class="modern-table">
+  <tbody>
+    <tr>
+      <th scope="row">Room Details</th>
+      <td><select class="form-control" name="room" id="select"  value="{{value[1]}}">
+        <option>Suit Room</option>
+          <option>Standard Room</option>
+          <option>Executive Room</option>
+      </select></td>
+    </tr>
+    <tr>
+      <th scope="row">Occupancy</th>
+      <td><select class="form-control" name="occupancy" id="select2"  value="{{value[2]}}">
+        <option>Single Occupancy</option>
+          <option>Double Occupancy</option>
+      </select></td>
+    </tr>
+    <tr>
+      <th scope="row">Price</th>
+      <td><input class="form-control" type="text" name="price" id="textfield"  value="{{value[3]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Room Amenities</th>
+      <td><textarea class="form-control" name="roomamenities" id="textarea" >{{value[4]}}</textarea></td>
+    </tr>
+    <tr>
+      <th scope="row">Photo</th>
+      <td><img src="/static/image/{{value[5]}}", height="50" width="50">
+			    <a href="/edit_imgresroom">change_image</a></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><input type="submit" name="submit" id="submit" value="update" class="btn btn-primary" style="margin-top:1rem;"></th>
+      </tr>
+  </tbody>
+</table></div>
+</form>
+
+</div>
+{% endblock %}

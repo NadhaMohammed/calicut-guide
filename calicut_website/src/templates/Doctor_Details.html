@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}Doctor Details - Calicut Guide{% endblock %}
+
+{% block content %}
+<div class="page-title">Doctor Details</div>
+<div class="glass-panel">
+<form action="doctor_registration" method="post"><div class="table-wrapper"><table class="modern-table">
+  <tbody>
+    <tr>
+      <th scope="row">Doc Name</th>
+      <td><input class="form-control" type="text" name="textfield2" id="textfield2"></td>
+    </tr>
+    <tr>
+      <th scope="row"><p>Specialization</p></th>
+      <td><input class="form-control" type="text" name="textfield" id="textfield"></td>
+    </tr>
+    <tr>
+      <th scope="row">Contact</th>
+      <td><input class="form-control" type="text" name="tel" id="tel" maxlength="20" placeholder="e.g. 0495 272 0011"></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><input type="submit" name="submit" id="submit" value="Submit" class="btn btn-primary" style="margin-top:1rem;"></th>
+      </tr>
+  </tbody>
+</table></div>
+  <p>&nbsp;</p>
+  <div class="table-wrapper"><table class="modern-table">
+    <tbody>
+      <tr>
+        <th width="75" scope="row">Doc Name</th>
+        <td width="90">Specialization</td>
+        <td width="48">Contact</td>
+        <td width="24">&nbsp;</td>
+        <td width="38">&nbsp;</td>
+      </tr>
+      {%for i in value%}
+      <tr>
+        <th scope="row">&nbsp;{{i[1]}}</th>
+        <td>&nbsp;{{i[2]}}</td>
+        <td>&nbsp;{{i[3]}}</td>
+        <td><a href="/editdoctor?id={{i[0]}}">edit</a></td>
+        <td><a href="deldoctor?id={{i[0]}}">delete</a></td>
+      </tr>
+    {%endfor%}
+    </tbody>
+  </table></div>
+  <p>&nbsp;</p>
+</form>
+
+</div>
+{% endblock %}

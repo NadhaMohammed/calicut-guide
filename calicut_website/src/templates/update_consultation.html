@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}Update Consultation - Calicut Guide{% endblock %}
+
+{% block content %}
+<div class="page-title">Update Consultation</div>
+<div class="glass-panel">
+<form  enctype="multipart/form-data" action="update_consultation" method="post" >
+  <div class="table-wrapper"><table class="modern-table">
+    <tbody>
+      <tr>
+        <th scope="row">Booking Time</th>
+        <td><input class="form-control" type="text" name="Booking_time" id="textfield2" value="{{value[2]}}"></td>
+      </tr>
+      <tr>
+        <th scope="row">Booking Day</th>
+        <td><label for="select">Select:</label>
+          <select class="form-control" name="select" id="select" value="{{value[3]}}">
+            <option {% if value[3]=="Monday"%} selected {%endif%}>Monday</option>
+            <option {% if value[3]=="Tuesday"%} selected {%endif%}>Tuesday</option>
+            <option {% if value[3]=="Wednesday"%} selected {%endif%}>Wednesday</option>
+            <option {% if value[3]=="Thursday"%} selected {%endif%}>Thursday</option>
+            <option {% if value[3]=="Friday"%} selected {%endif%}>Friday</option>
+            <option {% if value[3]=="Saturday"%} selected {%endif%}>Saturday</option>
+        </select></td>
+      </tr>
+      <tr>
+        <th colspan="2" scope="row"><input type="submit" name="update" id="submit" value="update" class="btn btn-primary" style="margin-top:1rem;"></th>
+      </tr>
+    </tbody>
+  </table></div>
+</form>
+
+</div>
+{% endblock %}

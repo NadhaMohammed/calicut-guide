@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block title %}Ambulance Details - Calicut Guide{% endblock %}
+
+{% block content %}
+<div class="page-title">Ambulance Details</div>
+<div class="glass-panel">
+
+<form id="form1" name="form1" action="ambulance_registration" method="post">
+  <div class="table-wrapper"><table class="modern-table">
+    <tbody>
+
+      <tr>
+        <th width="110" scope="row">Vehicle No</th>
+        <td width="477"><input class="form-control" type="text" name="number" id="number" maxlength="20" placeholder="e.g. KL-11-AB-1021" required></td>
+      </tr>
+      <tr>
+        <th scope="row">Contact Person</th>
+        <td><input class="form-control" type="text" name="textfield" id="textfield"></td>
+      </tr>
+      <tr>
+        <th scope="row">Contact No</th>
+        <td><input class="form-control" type="text" name="tel" id="tel" maxlength="20" placeholder="e.g. 0495 272 0011"></td>
+      </tr>
+      <tr>
+        <th scope="row">Facilities</th>
+        <td><p>
+          <input class="form-control" type="checkbox" name="facilities" id="checkbox" value="Mobile ICU">
+          Mobile ICU 
+          <input class="form-control" type="checkbox" name="facilities" id="checkbox2" value="Cardiac Monitor">
+          Cardiac Monitor 
+          <input class="form-control" type="checkbox" name="facilities" id="checkbox3" value="Oxygen Support">
+          Oxygen Support
+          <input class="form-control" type="checkbox" name="facilities" id="checkbox4" value="Ventilator">
+          Ventilator
+        </p></td>
+      </tr>
+      <tr>
+        <th colspan="2" scope="row"><input type="submit" name="submit" id="submit" value="Submit" class="btn btn-primary" style="margin-top:1rem;"></th>
+      </tr>
+    </tbody>
+  </table></div>
+  <p>&nbsp;</p>
+  <div class="table-wrapper"><table class="modern-table">
+    <tbody>
+
+      <tr>
+        <th width="80" scope="row" >Vehicle No</th>
+        <td width="112">Contact Person</td>
+        <td width="89">Contact No</td>
+        <td width="60">Facilities</td>
+        <td width="24">&nbsp;</td>
+        <td width="38">&nbsp;</td>
+      </tr>
+      {%for i in value%}
+      <tr>
+        <th scope="row" >&nbsp;{{i[1]}}</th>
+        <td>&nbsp;{{i[2]}}</td>
+        <td>&nbsp;{{i[3]}}</td>
+         <td>&nbsp;{{i[4]}}</td>
+        <td><a href="editambulance?id={{i[0]}}">edit</a></td>
+        <td><a href="delambulance?id={{i[0]}}">delete</a></td>
+      </tr>
+    {%endfor%}
+    </tbody>
+  </table></div>
+  <p>&nbsp;</p>
+</form>
+
+</div>
+{% endblock %}

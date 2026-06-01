@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block title %}Mall - Calicut Guide{% endblock %}
+
+{% block content %}
+<div class="page-title">Mall</div>
+<div class="glass-panel">
+
+<form action="add_mall" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <div class="table-wrapper"><table class="modern-table">
+    <tbody>
+      <tr>
+        <th width="101" scope="row">Name</th>
+        <td width="410"><input class="form-control" type="text" name="name" id="textfield3"></td>
+      </tr>
+      <tr>
+        <th scope="row">Place</th>
+        <td><input class="form-control" type="text" name="place" id="textfield2"></td>
+      </tr>
+      <tr>
+        <th scope="row">Post</th>
+        <td><input class="form-control" type="text" name="post" id="textfield"></td>
+      </tr>
+      <tr>
+        <th scope="row">Contact</th>
+        <td><input class="form-control" type="text" name="contact" id="tel" maxlength="20" placeholder="e.g. 0495 272 0011" required></td>
+      </tr>
+      <tr>
+        <th scope="row">Facility</th>
+        <td><input class="form-control" type="checkbox" name="facilities" id="checkbox" value="play station">
+          Play station
+            <input class="form-control" type="checkbox" name="facilities" id="checkbox2" value="food court">
+            Food Court
+            <input class="form-control" type="checkbox" name="facilities" id="checkbox3" value="food court">
+            Theatre
+            <input class="form-control" type="checkbox" name="facilities" id="checkbox4" value="Hyper market">
+            Hyper market</td>
+      </tr>
+      <tr>
+        <th scope="row">Opening Time</th>
+        <td><input class="form-control" type="text" name="opens" id="textfield4"></td>
+      </tr>
+      <tr>
+        <th scope="row">Closing Time</th>
+        <td><input class="form-control" type="text" name="closes" id="textfield5"></td>
+      </tr>
+      <tr>
+        <th height="46" scope="row">Images</th>
+        <td><p>
+            <input class="form-control" type="file" name="fileField" id="fileField">
+        </p></td>
+      </tr>
+      <tr>
+        <th colspan="2" scope="row"><input type="submit" name="submit" id="submit" value="Submit" class="btn btn-primary" style="margin-top:1rem;"></th>
+      </tr>
+    </tbody>
+  </table></div>
+  <p>&nbsp;</p>
+  <div class="table-wrapper"><table class="modern-table">
+    <tbody>
+      <tr>
+        <th scope="row">Name</th>
+        <td>Place</td>
+        <td>Post</td>
+        <td>Contact</td>
+        <td>Facility</td>
+        <td>Opening Time</td>
+        <td>Closing Time</td>
+        <td>Images</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+       {%for i in value%}
+      <tr>
+        <th scope="row">&nbsp;{{i[1]}}</th>
+        <td>&nbsp;{{i[2]}}</td>
+        <td>&nbsp;{{i[3]}}</td>
+        <td>&nbsp;{{i[4]}}</td>
+        <td>&nbsp;{{i[5]}}</td>
+        <td>&nbsp;{{i[6]}}</td>
+        <td>&nbsp;{{i[7]}}</td>
+        <td>&nbsp;<img src="/static/image/{{i[8]}}" , height="60"  width="60"></td>
+        <td><a href="editmall?mall_id={{i[0]}}">edit</a></td>
+        <td><a href="delmall?mall_id={{i[0]}}">delete</a></td>
+      </tr>
+    {%endfor%}
+    </tbody>
+  </table></div>
+  <p>&nbsp;</p>
+</form>
+
+</div>
+{% endblock %}

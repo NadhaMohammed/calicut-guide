@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard - Calicut Guide{% endblock %}
+
+{% block content %}
+<div class="page-title">Dashboard Overview</div>
+
+<div class="card-grid">
+    <a href="/hospital" style="text-decoration: none; color: inherit;">
+        <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-hospital"></i></div>
+            <div class="stat-details">
+                <h3>Hospitals</h3>
+                <p>Manage healthcare facilities</p>
+            </div>
+        </div>
+    </a>
+    
+    <a href="/education" style="text-decoration: none; color: inherit;">
+        <div class="stat-card">
+            <div class="stat-icon" style="color: var(--secondary); background: rgba(236, 72, 153, 0.2);"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="stat-details">
+                <h3>Education</h3>
+                <p>Manage educational institutions</p>
+            </div>
+        </div>
+    </a>
+
+    <a href="/transportation" style="text-decoration: none; color: inherit;">
+        <div class="stat-card">
+            <div class="stat-icon" style="color: #10b981; background: rgba(16, 185, 129, 0.2);"><i class="fa-solid fa-bus"></i></div>
+            <div class="stat-details">
+                <h3>Transport</h3>
+                <p>Manage travel & transit</p>
+            </div>
+        </div>
+    </a>
+
+    <a href="/Shop" style="text-decoration: none; color: inherit;">
+        <div class="stat-card">
+            <div class="stat-icon" style="color: #f59e0b; background: rgba(245, 158, 11, 0.2);"><i class="fa-solid fa-store"></i></div>
+            <div class="stat-details">
+                <h3>Shops</h3>
+                <p>Manage retail outlets</p>
+            </div>
+        </div>
+    </a>
+
+    <a href="/restaurant" style="text-decoration: none; color: inherit;">
+        <div class="stat-card">
+            <div class="stat-icon" style="color: #ef4444; background: rgba(239, 68, 68, 0.2);"><i class="fa-solid fa-utensils"></i></div>
+            <div class="stat-details">
+                <h3>Dining</h3>
+                <p>Manage food & restaurants</p>
+            </div>
+        </div>
+    </a>
+
+    <a href="/Entertainment" style="text-decoration: none; color: inherit;">
+        <div class="stat-card">
+            <div class="stat-icon" style="color: #0ea5e9; background: rgba(14, 165, 233, 0.2);"><i class="fa-solid fa-masks-theater"></i></div>
+            <div class="stat-details">
+                <h3>Entertainment</h3>
+                <p>Manage leisure spots</p>
+            </div>
+        </div>
+    </a>
+</div>
+{% endblock %}

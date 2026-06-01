@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %}Update Restaurant - Calicut Guide{% endblock %}
+
+{% block content %}
+<div class="page-title">Update Restaurant</div>
+<div class="glass-panel">
+
+<form enctype="multipart/form-data" action="update_restaurant" method="post">
+  <div class="table-wrapper"><table class="modern-table">
+  <tbody>
+    <tr>
+      <th scope="row">Hotel/Restaurant Name</th>
+      <td><input class="form-control" type="text" name="hotel_name" id="textfield7" value="{{value[1]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Place</th>
+      <td><input class="form-control" type="text" name="place" id="textfield6" value="{{value[2]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Post</th>
+      <td><input class="form-control" type="text" name="post" id="textfield5" value="{{value[3]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Nearby</th>
+      <td><input class="form-control" type="text" name="nearby" id="textfield4" value="{{value[4]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Contact</th>
+      <td><input class="form-control" type="text" name="contact" id="tel" maxlength="20" placeholder="e.g. 0495 272 0011" value="{{value[5]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Latitude</th>
+      <td><input class="form-control" type="text" name="latitude" id="textfield3" value="{{value[6]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Longitude</th>
+      <td><input class="form-control" type="text" name="longitude" id="textfield2" value="{{value[7]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Images</th>
+      <td><img src="/static/image/{{value[8]}}", height="50" width="50">
+			    <a href="change_imgres">change_image</a></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><input type="submit" name="submit" id="submit" value="Submit" class="btn btn-primary" style="margin-top:1rem;"></th>
+      </tr>
+  </tbody>
+</table></div>
+</form>
+
+</div>
+{% endblock %}

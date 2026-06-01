@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %}Update Hospital - Calicut Guide{% endblock %}
+
+{% block content %}
+<div class="page-title">Update Hospital</div>
+<div class="glass-panel">
+
+	<form enctype="multipart/form-data" action="update_hospital_details" method="post"><div class="table-wrapper"><table class="modern-table">
+  <tbody>
+    <tr>
+      <th scope="row">Name</th>
+      <td><label for="textfield"></label>
+        <input class="form-control" type="text" name="textfield" id="textfield" value="{{value[1]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Place</th>
+      <td><label for="textfield2"></label>
+        <input class="form-control" type="text" name="textfield2" id="textfield2" value="{{value[2]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Post</th>
+      <td><label for="textfield3"></label>
+        <input class="form-control" type="text" name="textfield3" id="textfield3" value="{{value[3]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Pin</th>
+      <td><label for="textfield4"></label>
+        <input class="form-control" type="text" name="textfield4" id="textfield4" value="{{value[4]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Contact</th>
+      <td><label for="textfield5"></label>
+        <input class="form-control" type="text" name="textfield5" id="textfield5" maxlength="20" placeholder="e.g. 0495 272 0011" value="{{value[5]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Latitude</th>
+      <td><label for="textfield6"></label>
+        <input class="form-control" type="text" name="textfield6" id="textfield6" value="{{value[8]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Longitude</th>
+      <td><label for="textfield7"></label>
+        <input class="form-control" type="text" name="textfield7" id="textfield7" value="{{value[9]}}"></td>
+    </tr>
+
+     <tr>
+      <th scope="row">Email</th>
+      <td><label for="email"></label>
+        <input class="form-control" type="email" name="email" id="email" value="{{value[7]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Images</th>
+      <td>
+		  <img src="/static/image/{{value[6]}}", height="50" width="50">
+			    <a href="change_image">change_image</a></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><input type="submit" name="update" id="button" value="update" class="btn btn-primary" style="margin-top:1rem;"></th>
+      </tr>
+  </tbody>
+</table></div>
+</form>
+
+</div>
+{% endblock %}

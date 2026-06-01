@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}Updateambulance Details - Calicut Guide{% endblock %}
+
+{% block content %}
+<div class="page-title">Updateambulance Details</div>
+<div class="glass-panel">
+
+<form id="form1" name="form1" action="update_ambulancedetails" method="post">
+  <div class="table-wrapper"><table class="modern-table">
+    <tbody>
+      <tr>
+        <th width="110" scope="row">Vehicle No</th>
+        <td width="477"><input class="form-control" type="text" name="number" id="number" maxlength="20" placeholder="e.g. KL-11-AB-1021" value="{{ value[1] }}" required></td>
+      </tr>
+      <tr>
+        <th scope="row">Contact Person</th>
+        <td><input class="form-control" type="text" name="textfield" id="textfield" value="{{value[2]}}"></td>
+      </tr>
+      <tr>
+        <th scope="row">Contact No</th>
+        <td><input class="form-control" type="text" name="tel" id="tel" maxlength="20" placeholder="e.g. 0495 272 0011" value="{{value[3]}}"></td>
+      </tr>
+      <tr>
+        <th scope="row">Facilities</th>
+        <td><p>
+          <input class="form-control" type="checkbox" name="facilities" id="checkbox" value="Mobile ICU" checked>
+          Mobile ICU 
+          <input class="form-control" type="checkbox" name="facilities" id="checkbox2" value="Cardiac Monitor">
+          Cardiac Monitor 
+          <input class="form-control" type="checkbox" name="facilities" id="checkbox3" value="Oxygen Support">
+          Oxygen Support
+          <input class="form-control" type="checkbox" name="facilities" id="checkbox4" value="Ventilator">
+          Ventilator
+        </p></td>
+      </tr>
+      <tr>
+        <th colspan="2" scope="row"><input type="submit" name="submit" id="submit" value="update" class="btn btn-primary" style="margin-top:1rem;"></th>
+      </tr>
+    </tbody>
+  </table></div>
+
+</form>
+
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Transportation - Calicut Guide{% endblock %}
+
+{% block content %}
+<div class="page-title">Transportation Dashboard</div>
+
+<div class="card-grid">
+    <a href="taxi_page_view" style="text-decoration: none; color: inherit;">
+        <div class="stat-card">
+            <div class="stat-icon" style="background: rgba(99, 102, 241, 0.2);"><i class="fa-solid fa-folder-open"></i></div>
+            <div class="stat-details">
+                <h3 style="text-transform: capitalize;">add taxi</h3>
+                <p>Manage add taxi records</p>
+            </div>
+        </div>
+    </a>
+    <a href="bus_page_view" style="text-decoration: none; color: inherit;">
+        <div class="stat-card">
+            <div class="stat-icon" style="background: rgba(99, 102, 241, 0.2);"><i class="fa-solid fa-folder-open"></i></div>
+            <div class="stat-details">
+                <h3 style="text-transform: capitalize;">add busstop</h3>
+                <p>Manage add busstop records</p>
+            </div>
+        </div>
+    </a>
+    <a href="railway_page_view" style="text-decoration: none; color: inherit;">
+        <div class="stat-card">
+            <div class="stat-icon" style="background: rgba(99, 102, 241, 0.2);"><i class="fa-solid fa-folder-open"></i></div>
+            <div class="stat-details">
+                <h3 style="text-transform: capitalize;">add station</h3>
+                <p>Manage add station records</p>
+            </div>
+        </div>
+    </a>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% set hide_sidebar = True %}
+
+{% block title %}Login - Calicut Guide{% endblock %}
+
+{% block content %}
+<div style="display: flex; min-height: 100vh; align-items: center; justify-content: center; width: 100%;">
+    <div class="glass-panel" style="width: 100%; max-width: 420px; padding: 3rem;">
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <img src="{{ url_for('static', filename='image/login_page_logo.png') }}" alt="Calicut Guide Logo" style="max-height: 80px; margin-bottom: 1rem; border-radius: 50%;">
+            <h2 style="font-size: 2rem; font-weight: 700;">Welcome Back</h2>
+            <p style="color: var(--text-muted);">Sign in to Calicut Guide</p>
+        </div>
+
+        <form id="form1" name="form1" method="post" action="/logincheck">
+            <div class="form-group">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" name="username" id="username" class="form-control" placeholder="Enter your username" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" name="password" id="password" class="form-control" placeholder="Enter your password" required>
+            </div>
+            
+            <button type="submit" name="login" id="login" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                <i class="fa-solid fa-right-to-bracket"></i> Login
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}

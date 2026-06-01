@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}Update Beach - Calicut Guide{% endblock %}
+
+{% block content %}
+<div class="page-title">Update Beach</div>
+<div class="glass-panel">
+<form action="update_beach" method="post" ><div class="table-wrapper"><table class="modern-table">
+  <tbody>
+    <tr>
+      <th width="77" scope="row">Name</th>
+      <td width="329"><input class="form-control" type="text" name="name" id="textfield7" value="{{value[1]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Place</th>
+      <td><input class="form-control" type="text" name="place" id="textfield6" value="{{value[2]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Facilities</th>
+      <td><input class="form-control" type="checkbox" name="facilities" id="checkbox" value="Children's Park" checked>
+        Children's park
+        <input class="form-control" type="checkbox" name="facilities" id="checkbox2" value="Restaurant">
+        Restaurant
+        <input class="form-control" type="checkbox" name="facilities" id="checkbox3" value="Car Parking">
+        Car parking
+    </tr>
+    <tr>
+      <th scope="row">Latitude</th>
+      <td><input class="form-control" type="text" name="latitude" id="textfield3" value="{{value[4]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Longitude</th>
+      <td><input class="form-control" type="text" name="longitude" id="textfield2" value="{{value[5]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Description</th>
+      <td><textarea class="form-control" name="description" id="textarea">{{value[6]}}</textarea></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><input type="submit" name="submit" id="submit" value="update" class="btn btn-primary" style="margin-top:1rem;"></th>
+      </tr>
+  </tbody>
+</table></div>
+</form>
+
+</div>
+{% endblock %}

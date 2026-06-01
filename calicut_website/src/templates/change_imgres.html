@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Change Imgres - Calicut Guide{% endblock %}
+
+{% block content %}
+<div class="page-title">Change Imgres</div>
+<div class="glass-panel">
+
+
+      <form enctype="multipart/form-data" action="update_imgres" method="post">
+        <div class="table-wrapper"><table class="modern-table">
+  <tbody>
+    <tr>
+      <th scope="row">change image</th>
+      <td><input class="form-control" type="file" name="images" id="fileField"></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><input type="submit" name="submit" id="submit" value="Submit" class="btn btn-primary" style="margin-top:1rem;"></th>
+    </tr>
+  </tbody>
+</table></div>
+      </form>
+
+
+</div>
+{% endblock %}

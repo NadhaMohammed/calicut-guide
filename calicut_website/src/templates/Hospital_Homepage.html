@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Hospital Homepage - Calicut Guide{% endblock %}
+
+{% block content %}
+<div class="page-title">Hospital Homepage Dashboard</div>
+
+<div class="card-grid">
+    <a href="doctor_details" style="text-decoration: none; color: inherit;">
+        <div class="stat-card">
+            <div class="stat-icon" style="background: rgba(99, 102, 241, 0.2);"><i class="fa-solid fa-folder-open"></i></div>
+            <div class="stat-details">
+                <h3 style="text-transform: capitalize;">Doctor Details</h3>
+                <p>Manage Doctor Details records</p>
+            </div>
+        </div>
+    </a>
+    <a href="consultation" style="text-decoration: none; color: inherit;">
+        <div class="stat-card">
+            <div class="stat-icon" style="background: rgba(99, 102, 241, 0.2);"><i class="fa-solid fa-folder-open"></i></div>
+            <div class="stat-details">
+                <h3 style="text-transform: capitalize;">Consultation time</h3>
+                <p>Manage Consultation time records</p>
+            </div>
+        </div>
+    </a>
+    <a href="ambulance_details" style="text-decoration: none; color: inherit;">
+        <div class="stat-card">
+            <div class="stat-icon" style="background: rgba(99, 102, 241, 0.2);"><i class="fa-solid fa-folder-open"></i></div>
+            <div class="stat-details">
+                <h3 style="text-transform: capitalize;">Ambulance</h3>
+                <p>Manage Ambulance records</p>
+            </div>
+        </div>
+    </a>
+    <a href="hospital_facility" style="text-decoration: none; color: inherit;">
+        <div class="stat-card">
+            <div class="stat-icon" style="background: rgba(99, 102, 241, 0.2);"><i class="fa-solid fa-folder-open"></i></div>
+            <div class="stat-details">
+                <h3 style="text-transform: capitalize;">Hospital Facilities</h3>
+                <p>Manage Hospital Facilities records</p>
+            </div>
+        </div>
+    </a>
+</div>
+{% endblock %}

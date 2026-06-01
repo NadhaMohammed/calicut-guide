@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Update Restaurant Details - Calicut Guide{% endblock %}
+
+{% block content %}
+<div class="page-title">Update Restaurant Details</div>
+<div class="glass-panel">
+
+<form enctype="multipart/form-data" action="/update_restime" method="post">
+  <div class="table-wrapper"><table class="modern-table">
+  <tbody>
+    <tr>
+      <th scope="row">Restaurant ID </th>
+      <td><input class="form-control" type="text" name="textfield" id="textfield"  value="{{value[3]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Morning Hours</th>
+      <td><input class="form-control" type="time" name="time" id="time"  value="{{value[1]}}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Evening Hours</th>
+      <td><input class="form-control" type="time" name="time2" id="time2"  value="{{value[2]}}"></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><input type="submit" name="submit" id="submit" value="update" class="btn btn-primary" style="margin-top:1rem;"></th>
+      </tr>
+  </tbody>
+</table></div>
+</form>
+
+</div>
+{% endblock %}

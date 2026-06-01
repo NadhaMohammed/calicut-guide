@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}Sample Reg - Calicut Guide{% endblock %}
+
+{% block content %}
+<div class="page-title">Sample Reg</div>
+<div class="glass-panel">
+
+<form id="form1" name="form1" method="post" action="/insert" enctype="multipart/form-data">
+<div class="table-wrapper"><table class="modern-table">
+  <tbody>
+    <tr>
+      <th scope="row">Name</th>
+      <td><label for="textfield"></label>
+      <input class="form-control" type="text" name="textfield" id="textfield"></td>
+    </tr>
+    <tr>
+      <th scope="row">Email</th>
+      <td><label for="textfield2"> </label>
+      <input class="form-control" type="text" name="textfield2" id="textfield2"></td>
+    </tr>
+    <tr>
+      <th scope="row">Username</th>
+      <td><input class="form-control" type="text" name="textfield3" id="textfield3"></td>
+    </tr>
+    <tr>
+      <th scope="row">Password</th>
+      <td><input class="form-control" type="password" name="textfield4" id="textfield4">        
+      <label for="select"></label></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><input type="submit" name="submit" id="submit" value="Submit" class="btn btn-primary" style="margin-top:1rem;"></th>
+    </tr>
+  </tbody>
+</table></div>
+</form>
+
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}Update Course - Calicut Guide{% endblock %}
+
+{% block content %}
+<div class="page-title">Update Course</div>
+<div class="glass-panel">
+
+<form enctype="multipart/form-data" action="/update_course" method="post">
+
+  <div class="table-wrapper"><table class="modern-table">
+    <tbody>
+      <tr>
+        <th scope="row">Programme</th>
+        <td><label for="select">Select:</label>
+          <select class="form-control" name="program" id="select" value="{{value[1]}}">
+            <option>UG pgm</option>
+            <option>PG pgm</option>
+        </select></td>
+      </tr>
+      <tr>
+        <th scope="row">Core Course</th>
+        <td><input class="form-control" type="text" name="core_course" id="textfield3" value="{{value[2]}}"></td>
+      </tr>
+      <tr>
+        <th scope="row">Course Duration</th>
+        <td><input class="form-control" type="text" name="duration" id="textfield2" value="{{value[3]}}"></td>
+      </tr>
+      <tr>
+        <th scope="row">Fees</th>
+        <td><input class="form-control" type="text" name="fees" id="textfield" value="{{value[4]}}"></td>
+      </tr>
+      <tr>
+        <th colspan="2" scope="row"><input type="submit" name="submit" id="submit" value="Update" class="btn btn-primary" style="margin-top:1rem;"></th>
+      </tr>
+    </tbody>
+  </table></div>
+</form>
+
+</div>
+{% endblock %}

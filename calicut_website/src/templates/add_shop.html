@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% block title %}Add Shop - Calicut Guide{% endblock %}
+
+{% block content %}
+<div class="page-title">Add Shop</div>
+<div class="glass-panel">
+
+<form action="add_shop" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <div class="table-wrapper"><table class="modern-table">
+    <tbody>
+      <tr>
+        <th scope="row">Shop Type</th>
+        <td>
+          <select class="form-control" name="shop_type" id="select" required>
+            <option value="">Select shop type</option>
+            <option value="Hyper market">Hyper market</option>
+            <option value="Grocery shop">Grocery shop</option>
+            <option value="Medicinal Shop">Medicinal Shop</option>
+            <option value="Fish market">Fish market</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">Name</th>
+        <td><input class="form-control" type="text" name="name" id="textfield6" required></td>
+      </tr>
+      <tr>
+        <th scope="row">Place</th>
+        <td><input class="form-control" type="text" name="place" id="textfield5" required></td>
+      </tr>
+      <tr>
+        <th scope="row">Post</th>
+        <td><input class="form-control" type="text" name="post" id="textfield4" required></td>
+      </tr>
+      <tr>
+        <th scope="row">Pincode</th>
+        <td><input class="form-control" type="text" name="pincode" id="textfield3" required></td>
+      </tr>
+      <tr>
+        <th scope="row">Contact no</th>
+        <td><input class="form-control" type="text" name="contactno" id="tel" maxlength="20" placeholder="e.g. 0495 272 0011" required></td>
+      </tr>
+      <tr>
+        <th scope="row">Opening Time</th>
+        <td><input class="form-control" type="text" name="opens" id="textfield" required></td>
+      </tr>
+      <tr>
+        <th scope="row">Closing Time</th>
+        <td><input class="form-control" type="text" name="closes" id="textfield7" required></td>
+      </tr>
+      <tr>
+        <th scope="row">Username</th>
+        <td><input class="form-control" type="text" name="username" id="username" required></td>
+      </tr>
+      <tr>
+        <th scope="row">Password</th>
+        <td><input class="form-control" type="password" name="password" id="password" required></td>
+      </tr>
+      <tr>
+        <th colspan="2" scope="row">
+          <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-primary" style="margin-top:1rem;">
+        </th>
+      </tr>
+    </tbody>
+  </table></div>
+  <p>&nbsp;</p>
+  <div class="table-wrapper"><table class="modern-table">
+    <tbody>
+      <tr>
+        <th scope="row">Shop Type</th>
+        <td>Name</td>
+        <td>Place</td>
+        <td>Post</td>
+        <td>Pincode</td>
+        <td>Contact no</td>
+        <td>Opening Time</td>
+        <td>Closing Time</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      {% for i in value %}
+      <tr>
+        <th scope="row">&nbsp;{{ i[1] }}</th>
+        <td>&nbsp;{{ i[2] }}</td>
+        <td>&nbsp;{{ i[3] }}</td>
+        <td>&nbsp;{{ i[4] }}</td>
+        <td>&nbsp;{{ i[5] }}</td>
+        <td>&nbsp;{{ i[6] }}</td>
+        <td>&nbsp;{{ i[7] }}</td>
+        <td>&nbsp;{{ i[8] }}</td>
+        <td><a href="editshop?shop_id={{ i[0] }}">edit</a></td>
+        <td><a href="delshop?shop_id={{ i[0] }}">delete</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table></div>
+  <p>&nbsp;</p>
+</form>
+
+</div>
+{% endblock %}
