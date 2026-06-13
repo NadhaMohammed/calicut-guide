@@ -1,364 +1,506 @@
-/*
-SQLyog Community v13.0.1 (64 bit)
-MySQL - 5.1.32-community : Database - calicut_website
-*********************************************************************
-*/
+-- MySQL dump 10.13  Distrib 8.0.44, for Win64 (x86_64)
+--
+-- Host: localhost    Database: calicut_website
+-- ------------------------------------------------------
+-- Server version	8.0.44
 
-/*!40101 SET NAMES utf8 */;
-
-/*!40101 SET SQL_MODE=''*/;
-
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`calicut_website` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
-USE `calicut_website`;
-
-/*Table structure for table `add_course` */
+--
+-- Table structure for table `add_course`
+--
 
 DROP TABLE IF EXISTS `add_course`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `add_course` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `program_name` varchar(50) NOT NULL,
   `core_course` varchar(50) NOT NULL,
   `duration` varchar(50) NOT NULL,
-  `fees` int(11) NOT NULL,
-  `edu_id` int(11) NOT NULL,
+  `fees` int NOT NULL,
+  `edu_id` int NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `add_course` */
+--
+-- Dumping data for table `add_course`
+--
 
-insert  into `add_course`(`id`,`program_name`,`core_course`,`duration`,`fees`,`edu_id`) values 
-(2,'UG pgm','hhy','yhhyy',12000,19),
-(3,'UG pgm','gfggfhgf','1',12000,19);
+LOCK TABLES `add_course` WRITE;
+/*!40000 ALTER TABLE `add_course` DISABLE KEYS */;
+INSERT INTO `add_course` VALUES (2,'UG pgm','hhy','yhhyy',12000,19),(3,'UG pgm','gfggfhgf','1',12000,19);
+/*!40000 ALTER TABLE `add_course` ENABLE KEYS */;
+UNLOCK TABLES;
 
-/*Table structure for table `ambulance_details` */
+--
+-- Table structure for table `admin_profile`
+--
+
+DROP TABLE IF EXISTS `admin_profile`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `admin_profile` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `login_id` int NOT NULL,
+  `full_name` varchar(100) DEFAULT '',
+  `email` varchar(100) DEFAULT '',
+  `phone` varchar(20) DEFAULT '',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uq_login` (`login_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `admin_profile`
+--
+
+LOCK TABLES `admin_profile` WRITE;
+/*!40000 ALTER TABLE `admin_profile` DISABLE KEYS */;
+INSERT INTO `admin_profile` VALUES (1,1,'Nadha ','nadhamohammed12@gmail.com','9447617663');
+/*!40000 ALTER TABLE `admin_profile` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ambulance_details`
+--
 
 DROP TABLE IF EXISTS `ambulance_details`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `ambulance_details` (
-  `ambulance_id` int(11) NOT NULL AUTO_INCREMENT,
-  `vehicle_no` int(11) NOT NULL,
+  `ambulance_id` int NOT NULL AUTO_INCREMENT,
+  `vehicle_no` varchar(20) NOT NULL,
   `name` varchar(50) NOT NULL,
   `contact_no` varchar(20) NOT NULL,
-  `facility` varchar(50) NOT NULL,
-  `hospital_id` int(11) NOT NULL,
+  `facility` varchar(255) NOT NULL,
+  `hospital_id` int NOT NULL,
   PRIMARY KEY (`ambulance_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `ambulance_details` */
+--
+-- Dumping data for table `ambulance_details`
+--
 
-insert  into `ambulance_details`(`ambulance_id`,`vehicle_no`,`name`,`contact_no`,`facility`,`hospital_id`) values 
-(1,1,'amisha',11111134,'Oxygen Support',3),
-(2,2,'akshara',2345,'Oxygen Support',3);
+LOCK TABLES `ambulance_details` WRITE;
+/*!40000 ALTER TABLE `ambulance_details` DISABLE KEYS */;
+INSERT INTO `ambulance_details` VALUES (5,'KL-11-AB-1021','Emergency Control Room - Aster MIMS','04952488222','Mobile ICU,Cardiac Monitor,Oxygen Support,Ventilator',1),(6,'KL-11-EF-3048','Emergency Departmet -Baby Memorial Hospital','04952777000','Mobile ICU,Cardiac Monitor,Oxygen Support',1);
+/*!40000 ALTER TABLE `ambulance_details` ENABLE KEYS */;
+UNLOCK TABLES;
 
-/*Table structure for table `beach_details` */
+--
+-- Table structure for table `beach_details`
+--
 
 DROP TABLE IF EXISTS `beach_details`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `beach_details` (
-  `beach_id` int(11) NOT NULL AUTO_INCREMENT,
+  `beach_id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `place` varchar(50) NOT NULL,
-  `facility` varchar(50) NOT NULL,
+  `facility` varchar(255) NOT NULL,
   `latitude` varchar(50) NOT NULL,
   `longitude` varchar(50) NOT NULL,
-  `description` TEXT NOT NULL,
+  `description` text,
   PRIMARY KEY (`beach_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `beach_details` */
+--
+-- Dumping data for table `beach_details`
+--
 
-insert  into `beach_details`(`beach_id`,`name`,`place`,`facility`,`latitude`,`longitude`,`description`) values 
-(2,'lk','jjjj','Restaurant','1.22','1.33','fggg');
+LOCK TABLES `beach_details` WRITE;
+/*!40000 ALTER TABLE `beach_details` DISABLE KEYS */;
+INSERT INTO `beach_details` VALUES (4,'Kozhikode Beach','Beach Road, Kozhikode','Children\'s Park,Restaurant,Car Parking','11.2588','75.7697','Kozhikode Beach is the most popular beach in Kozhikode city. It is known for its beautiful sunsets, historic piers, lighthouse, food stalls, and recreational facilities. It attracts tourists and local visitors throughout the year.'),(5,'Beypore Beach','Beypore, Kozhikode','Restaurant,Car Parking','11.1715','75.8046','Beypore Beach is located near the historic Beypore Port. It is famous for its scenic views, fishing harbor, and traditional Uru shipbuilding heritage.');
+/*!40000 ALTER TABLE `beach_details` ENABLE KEYS */;
+UNLOCK TABLES;
 
-/*Table structure for table `bus_details` */
+--
+-- Table structure for table `bus_details`
+--
 
 DROP TABLE IF EXISTS `bus_details`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `bus_details` (
-  `bus_id` int(11) NOT NULL AUTO_INCREMENT,
+  `bus_id` int NOT NULL AUTO_INCREMENT,
   `bus_name` varchar(50) NOT NULL,
   `latitude` varchar(50) NOT NULL,
   `longitude` varchar(50) NOT NULL,
   PRIMARY KEY (`bus_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `bus_details` */
+--
+-- Dumping data for table `bus_details`
+--
 
-insert  into `bus_details`(`bus_id`,`bus_name`,`latitude`,`longitude`) values 
-(1,'cvb ','1.2','2.2'),
-(2,'cvb ','1.7','2.2');
+LOCK TABLES `bus_details` WRITE;
+/*!40000 ALTER TABLE `bus_details` DISABLE KEYS */;
+INSERT INTO `bus_details` VALUES (7,'Kozhikode KSRTC Bus Stand','11.2588','75.7804'),(8,'Palayam Bus Stand','11.2582','75.7800'),(9,'Medical College Bus Stop','11.2739','75.8354');
+/*!40000 ALTER TABLE `bus_details` ENABLE KEYS */;
+UNLOCK TABLES;
 
-/*Table structure for table `doctor_details` */
+--
+-- Table structure for table `doctor_details`
+--
 
 DROP TABLE IF EXISTS `doctor_details`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `doctor_details` (
-  `doctor_id` int(11) NOT NULL AUTO_INCREMENT,
+  `doctor_id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `specialization` varchar(50) NOT NULL,
   `contact` varchar(20) NOT NULL,
-  `hospital_id` int(11) NOT NULL,
+  `hospital_id` int NOT NULL,
   PRIMARY KEY (`doctor_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `doctor_details` */
+--
+-- Dumping data for table `doctor_details`
+--
 
-insert  into `doctor_details`(`doctor_id`,`name`,`specialization`,`contact`,`hospital_id`) values 
-(2,'bdd','ortho',4558866,4),
-(3,'bdd','cardio',4558866,4);
+LOCK TABLES `doctor_details` WRITE;
+/*!40000 ALTER TABLE `doctor_details` DISABLE KEYS */;
+INSERT INTO `doctor_details` VALUES (5,'Dr. Rajesh Kumar','Orthopaedics','04957123456',1),(6,'Dr. Prashanth Nair','Cardiology','04952488222',1);
+/*!40000 ALTER TABLE `doctor_details` ENABLE KEYS */;
+UNLOCK TABLES;
 
-/*Table structure for table `education_details` */
+--
+-- Table structure for table `education_details`
+--
 
 DROP TABLE IF EXISTS `education_details`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `education_details` (
-  `edu_id` int(11) NOT NULL AUTO_INCREMENT,
+  `edu_id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `place` varchar(50) NOT NULL,
   `post` varchar(50) NOT NULL,
-  `pincode` int(11) NOT NULL,
+  `pincode` int NOT NULL,
   `contact` varchar(20) NOT NULL,
   `email` varchar(50) NOT NULL,
   `opens` varchar(50) NOT NULL,
   `closes` varchar(50) NOT NULL,
-  `login_id` int(11) NOT NULL,
+  `login_id` int NOT NULL,
   PRIMARY KEY (`edu_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `education_details` */
+--
+-- Dumping data for table `education_details`
+--
 
-insert  into `education_details`(`edu_id`,`name`,`place`,`post`,`pincode`,`contact`,`email`,`opens`,`closes`,`login_id`) values 
-(2,'jdt','vellimaad','hihiiiii',67445,9856443322,'jdt123@gmail.com','10.am','12 pm',20);
+LOCK TABLES `education_details` WRITE;
+/*!40000 ALTER TABLE `education_details` DISABLE KEYS */;
+INSERT INTO `education_details` VALUES (2,'jdt','vellimaad','hihiiiii',67445,'9856443322','jdt123@gmail.com','10.am','12 pm',20);
+/*!40000 ALTER TABLE `education_details` ENABLE KEYS */;
+UNLOCK TABLES;
 
-/*Table structure for table `hospital_booking` */
+--
+-- Table structure for table `hospital_booking`
+--
 
 DROP TABLE IF EXISTS `hospital_booking`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `hospital_booking` (
-  `book_id` int(11) NOT NULL AUTO_INCREMENT,
+  `book_id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
-  `booking_time` int(11) NOT NULL,
+  `booking_time` int NOT NULL,
   `booking_day` varchar(50) NOT NULL,
-  `hospital_id` int(11) NOT NULL,
+  `hospital_id` int NOT NULL,
   PRIMARY KEY (`book_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `hospital_booking` */
+--
+-- Dumping data for table `hospital_booking`
+--
 
-insert  into `hospital_booking`(`book_id`,`name`,`booking_time`,`booking_day`,`hospital_id`) values 
-(5,'3',11,'Wednesday',4),
-(6,'3',11,'Wednesday',4);
+LOCK TABLES `hospital_booking` WRITE;
+/*!40000 ALTER TABLE `hospital_booking` DISABLE KEYS */;
+INSERT INTO `hospital_booking` VALUES (5,'3',11,'Wednesday',4),(6,'3',11,'Wednesday',4);
+/*!40000 ALTER TABLE `hospital_booking` ENABLE KEYS */;
+UNLOCK TABLES;
 
-/*Table structure for table `hospital_details` */
+--
+-- Table structure for table `hospital_details`
+--
 
 DROP TABLE IF EXISTS `hospital_details`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `hospital_details` (
-  `hospital_id` int(11) NOT NULL AUTO_INCREMENT,
+  `hospital_id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `place` varchar(50) NOT NULL,
   `post` varchar(50) NOT NULL,
-  `pincode` int(11) NOT NULL,
-  `contact` varchar(20) NOT NULL,
+  `pincode` int NOT NULL,
+  `contact` varchar(50) DEFAULT NULL,
   `Image` varchar(255) NOT NULL,
   `email` varchar(50) NOT NULL,
   `latitude` varchar(50) NOT NULL,
   `longitude` varchar(50) NOT NULL,
-  `login_id` int(50) NOT NULL,
+  `login_id` int NOT NULL,
   PRIMARY KEY (`hospital_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `hospital_details` */
+--
+-- Dumping data for table `hospital_details`
+--
 
-insert  into `hospital_details`(`hospital_id`,`name`,`place`,`post`,`pincode`,`contact`,`Image`,`email`,`latitude`,`longitude`,`login_id`) values 
-(4,'anagha','dxhdfdn','vbxdvb',5555,3455,'bmh.jpg','anaghasivan817@gmail.com','xcvnxgh','fbfxb',11);
+LOCK TABLES `hospital_details` WRITE;
+/*!40000 ALTER TABLE `hospital_details` DISABLE KEYS */;
+INSERT INTO `hospital_details` VALUES (7,'Aster MIMS Hospital','Govindapuram','Kozhikode',673016,'0495 248 8222','aster_mims_calicut_building-min.webp','info@astermims.com','11.2589','75.7915',28),(8,'Meitra Hospital','Edakkad','Kozhikode',673005,'0495 712 3456','meitra_calicut','info@meitra.com','11.2890','75.8175',29);
+/*!40000 ALTER TABLE `hospital_details` ENABLE KEYS */;
+UNLOCK TABLES;
 
-/*Table structure for table `hospital_facilities` */
+--
+-- Table structure for table `hospital_facilities`
+--
 
 DROP TABLE IF EXISTS `hospital_facilities`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `hospital_facilities` (
-  `facility_id` int(11) NOT NULL AUTO_INCREMENT,
+  `facility_id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
-  `description` TEXT NOT NULL,
-  `hospital_id` int(11) NOT NULL,
+  `description` text,
+  `hospital_id` int NOT NULL,
   PRIMARY KEY (`facility_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `hospital_facilities` */
+--
+-- Dumping data for table `hospital_facilities`
+--
 
-insert  into `hospital_facilities`(`facility_id`,`name`,`description`,`hospital_id`) values 
-(3,'ddsfdsf 222','vdfgvdffd',4);
+LOCK TABLES `hospital_facilities` WRITE;
+/*!40000 ALTER TABLE `hospital_facilities` DISABLE KEYS */;
+INSERT INTO `hospital_facilities` VALUES (3,'ddsfdsf 222','vdfgvdffd',4);
+/*!40000 ALTER TABLE `hospital_facilities` ENABLE KEYS */;
+UNLOCK TABLES;
 
-/*Table structure for table `login` */
+--
+-- Table structure for table `login`
+--
 
 DROP TABLE IF EXISTS `login`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `login` (
-  `login_id` int(11) NOT NULL AUTO_INCREMENT,
+  `login_id` int NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `usertype` varchar(50) NOT NULL,
   PRIMARY KEY (`login_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `login` */
+--
+-- Dumping data for table `login`
+--
 
-insert  into `login`(`login_id`,`username`,`password`,`usertype`) values 
-(1,'admin','123','admin'),
-(2,'h1','dnhdfm',''),
-(3,'h3','789','ambulance'),
-(4,'h2','456','hospital'),
-(5,'bncbfnc','ghhh','hospital'),
-(6,'bncbfnc','123456','hospital'),
-(7,'bncbfnc','123','hospital'),
-(8,'shop1','1234','Shop'),
-(9,'shop1','1234','Shop'),
-(10,'shop1','1234','Shop'),
-(11,'bncbfnc','qwerty','hospital'),
-(17,'rest2','rest2','restaurant'),
-(18,'topform123','123','restaurant'),
-(19,'kgptc123','123','education'),
-(20,'jdt123','jdt1234','education'),
-(21,'fancy','111','Shop');
+LOCK TABLES `login` WRITE;
+/*!40000 ALTER TABLE `login` DISABLE KEYS */;
+INSERT INTO `login` VALUES (1,'admin','123','admin'),(2,'h1','dnhdfm',''),(3,'h3','789','ambulance'),(4,'h2','456','hospital'),(5,'bncbfnc','ghhh','hospital'),(6,'bncbfnc','123456','hospital'),(7,'bncbfnc','123','hospital'),(8,'shop1','1234','Shop'),(9,'shop1','1234','Shop'),(10,'shop1','1234','Shop'),(11,'bncbfnc','qwerty','hospital'),(19,'kgptc123','123','education'),(20,'jdt123','jdt1234','education'),(21,'fancy','111','Shop'),(22,'admin','123','Shop'),(23,'admin','123','hospital'),(24,'admin','123','Shop'),(26,'admin','123','hospital'),(27,'admin','123','hospital'),(28,'admin','123','hospital'),(29,'admin','123','hospital'),(30,'admin','123','Shop'),(31,'admin','123','Shop'),(32,'admin','123','Shop'),(33,'admin','123','restaurant'),(34,'admin','123','restaurant');
+/*!40000 ALTER TABLE `login` ENABLE KEYS */;
+UNLOCK TABLES;
 
-/*Table structure for table `mall_details` */
+--
+-- Table structure for table `mall_details`
+--
 
 DROP TABLE IF EXISTS `mall_details`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `mall_details` (
-  `mall_id` int(11) NOT NULL AUTO_INCREMENT,
+  `mall_id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `place` varchar(50) NOT NULL,
   `post` varchar(50) NOT NULL,
   `contact` varchar(20) NOT NULL,
-  `facility` varchar(50) NOT NULL,
+  `facility` varchar(255) NOT NULL,
   `opens` varchar(50) NOT NULL,
   `closes` varchar(50) NOT NULL,
   `image` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`mall_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `mall_details` */
+--
+-- Dumping data for table `mall_details`
+--
 
-insert  into `mall_details`(`mall_id`,`name`,`place`,`post`,`contact`,`facility`,`opens`,`closes`,`image`) values 
-(1,'anagha','beypore','11111',1111111,'on','9:00','6:00','kgptc.jpg');
+LOCK TABLES `mall_details` WRITE;
+/*!40000 ALTER TABLE `mall_details` DISABLE KEYS */;
+INSERT INTO `mall_details` VALUES (7,'HiLITE Mall','Palazhi, Kozhikode','673014','04952435000','play station,food court,Theatre,Hyper market','10:00 AM','10:00 PM','hilite_mall.webp'),(8,'Focus Mall','Mavoor Road, Kozhikode','673004','04952720011','play station,food court','10:00 AM','09:30 PM','focus-mall.webp');
+/*!40000 ALTER TABLE `mall_details` ENABLE KEYS */;
+UNLOCK TABLES;
 
-/*Table structure for table `railway_details` */
+--
+-- Table structure for table `railway_details`
+--
 
 DROP TABLE IF EXISTS `railway_details`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `railway_details` (
-  `rail_id` int(11) NOT NULL AUTO_INCREMENT,
+  `rail_id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
-  `about` TEXT NOT NULL,
+  `about` text,
   `latitude` varchar(50) NOT NULL,
   `longitude` varchar(50) NOT NULL,
   PRIMARY KEY (`rail_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `railway_details` */
+--
+-- Dumping data for table `railway_details`
+--
 
-insert  into `railway_details`(`rail_id`,`name`,`about`,`latitude`,`longitude`) values 
-(1,'fdd','dff','11.9','5.9'),
-(2,'calicut','dff','11.9','5.9'),
-(3,'kannur','dff>','11.9','5.9');
+LOCK TABLES `railway_details` WRITE;
+/*!40000 ALTER TABLE `railway_details` DISABLE KEYS */;
+INSERT INTO `railway_details` VALUES (5,'Kozhikode Railway Station','Kozhikode Railway Station (CLT) is the main railway station serving Kozhikode city. It is one of the busiest stations in Kerala and connects the city to major destinations including Kochi, Thiruvananthapuram, Bengaluru, Chennai, Mumbai, and Delhi.','11.2588','75.7804'),(6,'West Hill Railway Station','West Hill Railway Station is a small railway station located in the northern part of Kozhikode city. It mainly serves local and passenger train services.','11.2898','75.7694'),(7,'Feroke Railway Station','Feroke Railway Station serves the southern part of Kozhikode district. It is an important stop on the ShoranurÔÇôMangalore railway line and provides access to nearby industrial and residential areas.','11.1792','75.8417');
+/*!40000 ALTER TABLE `railway_details` ENABLE KEYS */;
+UNLOCK TABLES;
 
-/*Table structure for table `registration` */
+--
+-- Table structure for table `registration`
+--
 
 DROP TABLE IF EXISTS `registration`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `registration` (
-  `reg_id` int(11) NOT NULL AUTO_INCREMENT,
+  `reg_id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `login_id` int(11) DEFAULT NULL,
+  `login_id` int DEFAULT NULL,
   PRIMARY KEY (`reg_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `registration` */
+--
+-- Dumping data for table `registration`
+--
 
-/*Table structure for table `res_food` */
+LOCK TABLES `registration` WRITE;
+/*!40000 ALTER TABLE `registration` DISABLE KEYS */;
+/*!40000 ALTER TABLE `registration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `res_food`
+--
 
 DROP TABLE IF EXISTS `res_food`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `res_food` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `dish` varchar(50) NOT NULL,
   `category` varchar(50) NOT NULL,
   `veg` varchar(50) NOT NULL,
   `non_veg` varchar(50) NOT NULL,
-  `price` int(11) NOT NULL,
-  `res_id` int(11) NOT NULL,
+  `price` int NOT NULL,
+  `res_id` int NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `res_food` */
+--
+-- Dumping data for table `res_food`
+--
 
-insert  into `res_food`(`id`,`dish`,`category`,`veg`,`non_veg`,`price`,`res_id`) values 
-(3,'chicken soup','Soup','Non-Veg','Non-Veg',330,17),
-(4,'chicken soup','Soup','Non-Veg','Non-Veg',200,17),
-(5,'chicken soup','Soup','Vegetarian','Vegetarian',200,17),
-(6,'chicken soup','Soup','Non-Veg','Non-Veg',500,17),
-(7,'chicken soup','Soup','Non-Veg','Non-Veg',500,17),
-(8,'chicken soup','Soup','Non-Veg','Non-Veg',330,17),
-(9,'chicken soup','Soup','Vegetarian','Vegetarian',500,17),
-(10,'chicken soup','Soup','Vegetarian','Vegetarian',500,17);
+LOCK TABLES `res_food` WRITE;
+/*!40000 ALTER TABLE `res_food` DISABLE KEYS */;
+INSERT INTO `res_food` VALUES (3,'chicken soup','Soup','Non-Veg','Non-Veg',330,17),(4,'chicken soup','Soup','Non-Veg','Non-Veg',200,17),(5,'chicken soup','Soup','Vegetarian','Vegetarian',200,17),(6,'chicken soup','Soup','Non-Veg','Non-Veg',500,17),(7,'chicken soup','Soup','Non-Veg','Non-Veg',500,17),(8,'chicken soup','Soup','Non-Veg','Non-Veg',330,17),(9,'chicken soup','Soup','Vegetarian','Vegetarian',500,17),(10,'chicken soup','Soup','Vegetarian','Vegetarian',500,17);
+/*!40000 ALTER TABLE `res_food` ENABLE KEYS */;
+UNLOCK TABLES;
 
-/*Table structure for table `res_room` */
+--
+-- Table structure for table `res_room`
+--
 
 DROP TABLE IF EXISTS `res_room`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `res_room` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `room_details` varchar(50) NOT NULL,
   `occupancy` varchar(50) NOT NULL,
-  `price` int(11) NOT NULL,
-  `room_des` TEXT NOT NULL,
+  `price` int NOT NULL,
+  `room_des` text,
   `photo` varchar(255) NOT NULL,
-  `res_id` int(11) NOT NULL,
+  `res_id` int NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `res_room` */
+--
+-- Dumping data for table `res_room`
+--
 
-insert  into `res_room`(`id`,`room_details`,`occupancy`,`price`,`room_des`,`photo`,`res_id`) values 
-(4,'Suit Room','Single Occupancy',3500,'bhbhbkjbkj','im.avif',5),
-(6,'Executive Room','Double Occupancy',3500,' b nm nm nm nm ','bmh.jpg',5);
+LOCK TABLES `res_room` WRITE;
+/*!40000 ALTER TABLE `res_room` DISABLE KEYS */;
+INSERT INTO `res_room` VALUES (4,'Suit Room','Single Occupancy',3500,'bhbhbkjbkj','im.avif',5),(6,'Executive Room','Double Occupancy',3500,' b nm nm nm nm ','bmh.jpg',5);
+/*!40000 ALTER TABLE `res_room` ENABLE KEYS */;
+UNLOCK TABLES;
 
-/*Table structure for table `res_workingtime` */
+--
+-- Table structure for table `res_workingtime`
+--
 
 DROP TABLE IF EXISTS `res_workingtime`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `res_workingtime` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `morning_hrs` varchar(50) NOT NULL,
   `evng_hrs` varchar(50) NOT NULL,
-  `res_id` int(11) NOT NULL,
+  `res_id` int NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `res_workingtime` */
+--
+-- Dumping data for table `res_workingtime`
+--
 
-insert  into `res_workingtime`(`id`,`morning_hrs`,`evng_hrs`,`res_id`) values 
-(10,'14:21','17:19',18),
-(11,'15:32','13:34',18),
-(12,'14:35','15:35',18),
-(14,'23:03','20:02',17),
-(15,'23:03','20:02',17);
+LOCK TABLES `res_workingtime` WRITE;
+/*!40000 ALTER TABLE `res_workingtime` DISABLE KEYS */;
+INSERT INTO `res_workingtime` VALUES (10,'14:21','17:19',18),(11,'15:32','13:34',18),(12,'14:35','15:35',18),(14,'23:03','20:02',17),(15,'23:03','20:02',17);
+/*!40000 ALTER TABLE `res_workingtime` ENABLE KEYS */;
+UNLOCK TABLES;
 
-/*Table structure for table `restaurant_details` */
+--
+-- Table structure for table `restaurant_details`
+--
 
 DROP TABLE IF EXISTS `restaurant_details`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `restaurant_details` (
-  `res_id` int(11) NOT NULL AUTO_INCREMENT,
+  `res_id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `place` varchar(50) NOT NULL,
   `post` varchar(50) NOT NULL,
@@ -367,60 +509,87 @@ CREATE TABLE `restaurant_details` (
   `latitude` varchar(50) NOT NULL,
   `longitude` varchar(50) NOT NULL,
   `image` varchar(255) NOT NULL,
-  `login_id` int(11) NOT NULL,
+  `login_id` int NOT NULL,
   PRIMARY KEY (`res_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `restaurant_details` */
+--
+-- Dumping data for table `restaurant_details`
+--
 
-insert  into `restaurant_details`(`res_id`,`name`,`place`,`post`,`nearby`,`contact`,`latitude`,`longitude`,`image`,`login_id`) values 
-(5,'mayflower','kozhikode','kozhikode','sasa',13331,'1.33','2.11','kgptc.jpg',17),
-(6,'topform','mavoor road','calicut','mavoor road',984533455,'11.3','11.7','bmh.jpg',18);
+LOCK TABLES `restaurant_details` WRITE;
+/*!40000 ALTER TABLE `restaurant_details` DISABLE KEYS */;
+INSERT INTO `restaurant_details` VALUES (8,'Paragon Restaurant','Mavoor Road','Kozhikode','KSRTC Bus Stand','04952702456','11.2588','75.7804','paragon.webp',33),(9,'Rahmath Hotel','Palayam','Kozhikode','SM Street','04952721402','11.2565','75.7800','rahmath_hotel.webp',34);
+/*!40000 ALTER TABLE `restaurant_details` ENABLE KEYS */;
+UNLOCK TABLES;
 
-/*Table structure for table `shop_details` */
+--
+-- Table structure for table `shop_details`
+--
 
 DROP TABLE IF EXISTS `shop_details`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `shop_details` (
-  `shop_id` int(11) NOT NULL AUTO_INCREMENT,
+  `shop_id` int NOT NULL AUTO_INCREMENT,
   `shop_type` varchar(50) NOT NULL,
   `name` varchar(50) NOT NULL,
   `place` varchar(50) NOT NULL,
   `post` varchar(50) NOT NULL,
-  `pincode` int(11) NOT NULL,
+  `pincode` int NOT NULL,
   `contact` varchar(20) NOT NULL,
   `opens` varchar(50) NOT NULL,
   `closes` varchar(50) NOT NULL,
-  `login_id` int(11) NOT NULL,
+  `login_id` int NOT NULL,
   PRIMARY KEY (`shop_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `shop_details` */
+--
+-- Dumping data for table `shop_details`
+--
 
-insert  into `shop_details`(`shop_id`,`shop_type`,`name`,`place`,`post`,`pincode`,`contact`,`opens`,`closes`,`login_id`) values 
-(1,'Grocery shop','anagha','zzz','111',1111,122233,'asoo','fggff',21);
+LOCK TABLES `shop_details` WRITE;
+/*!40000 ALTER TABLE `shop_details` DISABLE KEYS */;
+INSERT INTO `shop_details` VALUES (5,'Hyper market','LuLu Hypermarket','Mankave','Kozhikode',673007,'04956631000','09:00 AM','11:00 PM',31),(6,'Fish market','Beypore Fish Market','Beypore','Kozhikode',673015,'04952415000','05:00 AM','07:00 PM',32);
+/*!40000 ALTER TABLE `shop_details` ENABLE KEYS */;
+UNLOCK TABLES;
 
-/*Table structure for table `taxi_details` */
+--
+-- Table structure for table `taxi_details`
+--
 
 DROP TABLE IF EXISTS `taxi_details`;
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `taxi_details` (
-  `taxi_id` int(11) NOT NULL AUTO_INCREMENT,
+  `taxi_id` int NOT NULL AUTO_INCREMENT,
   `type` varchar(50) NOT NULL,
   `place` varchar(50) NOT NULL,
   `contact_person` varchar(50) NOT NULL,
   `contact_no` varchar(20) NOT NULL,
   PRIMARY KEY (`taxi_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-/*Data for the table `taxi_details` */
+--
+-- Dumping data for table `taxi_details`
+--
 
-insert  into `taxi_details`(`taxi_id`,`type`,`place`,`contact_person`,`contact_no`) values 
-(2,'car','beypore','anju',23456789),
-(3,'Auto','clt','anamika',2345),
-(4,'Auto','qwertyu','asdfgh',123456);
+LOCK TABLES `taxi_details` WRITE;
+/*!40000 ALTER TABLE `taxi_details` DISABLE KEYS */;
+INSERT INTO `taxi_details` VALUES (6,'car','Tazhekkod','Smart Taxi Office','9895053565'),(7,'car','Govindapuram','Calicut Taxi Service','9497111019');
+/*!40000 ALTER TABLE `taxi_details` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2026-06-13 19:19:15
